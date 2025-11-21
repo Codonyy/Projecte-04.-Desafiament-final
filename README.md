@@ -43,20 +43,20 @@ Durant quatre setmanes, l’alumne resoldrà encàrrecs reals dins l’ecosistem
 | Tasques                                                       |
 |---------------------------------------------------------------|
 | 📁 [T01](./tasca01/README.md)                                       |
-| 📁 [T02](./tasca02)                                       |
-| 📁 [T03](./tasca03)                                       |
-| 📁 [T04](./tasca04)                                       |
-| 📁 [T05](./tasca05)                                       |
-| 📁 [T06](./tasca06)                                       |
-| 📁 [T07](./tasca07)                                       |
-| 📁 [T08](./tasca08)                                       |
-| 📁 [T09](./tasques/T08)                                       |
-| 📁 [T10](./tasques/T09)                                       |                                                             
-| 📁 [T11](./tasques/T10)                                       |                                                             
-| 📁 [T12](./tasques/T11)                                       |                                                             
-| 📁 [T13](./tasques/T12)                                       |                                                             
-| 📁 [T14](./tasques/T13)                                       |                                                             
-| 📁 [T15](./tasques/T14)                                       |                                                                                                                          
+| 📁 [T02](./tasca02/README.md)                                       |
+| 📁 [T03](./tasca03/README.md)                                       |
+| 📁 [T04](./tasca04/README.md)                                       |
+| 📁 [T05](./tasca05/README.md)                                       |
+| 📁 [T06](./tasca06/README.md)                                       |
+| 📁 [T07](./tasca07/README.md)                                       |
+| 📁 [T08](./tasca08/README.md)                                       |
+| 📁 [T09](./tasca09/README.md)                                       |
+| 📁 [T10](./tasca10/README.md)                                       |                                                             
+| 📁 [T11](./tasca11/README.md)                                       |                                                             
+| 📁 [T12](./tasca12/README.md)                                       |                                                             
+| 📁 [T13](./tasca13/README.md)                                       |                                                             
+| 📁 [T14](./tasca14/README.md)                                       |                                                             
+| 📁 [T15](./tasca15/README.md)                                       |                                                                                                                          
 
 ## El repte: preparar EverPia per al seu salt tecnològic
 
