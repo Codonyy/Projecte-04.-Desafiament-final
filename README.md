@@ -38,6 +38,27 @@ Durant quatre setmanes, l’alumne resoldrà encàrrecs reals dins l’ecosistem
 
 ---
 
+# TASQUES I PRODUCTES
+
+| Tasques                                                       | Productes                                                   |
+|---------------------------------------------------------------|-------------------------------------------------------------|
+| 📁 [T00](./tasca01)                                       | 📦 [P01](./productes/P01)                                   |
+| 📁 [T01](./tasca02)                                       | 📦 [P02](./productes/P02)                                   |
+| 📁 [T02](./tasca03)                                       | 📦 [P03](./productes/P03)                                   |
+| 📁 [T03](./tasca04)                                       |                                                             |
+| 📁 [T04](./tasca05)                                       |                                                             |
+| 📁 [T05](./tasca06)                                       |                                                             |
+| 📁 [T06](./tasca07)                                       |                                                             |
+| 📁 [T07](./tasca08)                                       |                                                             |
+| 📁 [T08](./tasques/T08)                                       |                                                             |
+| 📁 [T09](./tasques/T09)                                       |                                                             |
+| 📁 [T10](./tasques/T10)                                       |                                                             |
+| 📁 [T11](./tasques/T11)                                       |                                                             |
+| 📁 [T12](./tasques/T12)                                       |                                                             |
+| 📁 [T13](./tasques/T13)                                       |                                                             |
+| 📁 [T14](./tasques/T14)                                       |                                                             |
+| 📁 [T15](./tasques/T15)                                       |                                                             |
+
 ## El repte: preparar EverPia per al seu salt tecnològic
 
 EverPia es troba en un moment de creixement i necessita reforçar la seva infraestructura per escalar serveis, millorar la resiliència i oferir noves solucions digitals.
