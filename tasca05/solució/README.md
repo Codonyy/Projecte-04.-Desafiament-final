@@ -1,7 +1,6 @@
 
-T05: Accés Remot
+# T05: Accés Remot
 
-![solucio](/tasca05/img/cap1.png)
 
 Martí Codony Sacristan  
 SMXA 2n A
