@@ -5,7 +5,7 @@
 Martí Codony Sacristan  
 SMXA 2n A
 
-1\. Instal·lar SSH al servidor (Ubuntu)
+## 1\. Instal·lar SSH al servidor (Ubuntu)
 
 Si el servidor no té SSH instal·lat, pots instal·lar-lo amb:
 
@@ -13,7 +13,7 @@ sudo apt install ssh
 
 ![solucio](/tasca05/img/cap1.png)
 
-2\. Verificar les interfícies de xarxa
+## 2\. Verificar les interfícies de xarxa
 
 Per conèixer les adreces IP del servidor, pots executar:
 
@@ -23,14 +23,14 @@ ip addr show
 
 empos8: té l'adreça **192.168.56.101/24** → aquesta és la IP que utilitzarem per connectar-nos via SSH.
 
-3\. Connectar-se des d'un client Windows
+## 3\. Connectar-se des d'un client Windows
 
 Per conectarnos al ssh haurem de fer la comanda: ssh usuari@192.168.56.101
 
 ![solucio](/tasca05/img/cap3.png)
 ![solucio](/tasca05/img/cap4.png)
 
-4\. Configuració del servidor SSH (sshd\_config)
+## 4\. Configuració del servidor SSH (sshd\_config)
 
 Els fitxers de configuració es troben a /etc/ssh/sshd\_config.
 
@@ -51,7 +51,7 @@ sudo systemctl restart ssh
 
 ![solucio](/tasca05/img/cap8.png)
 
-5\. Crear nous usuaris al servidor
+## 5\. Crear nous usuaris al servidor
 
 sudo adduser usuari2  
 ![solucio](/tasca05/img/cap9.png)
@@ -60,7 +60,7 @@ Després, si vols permetre que es connecti, has d’afegir-lo a AllowUsers al fi
 
 ![solucio](/tasca05/img/cap10.png)
 
-6\. Configuració de proxy (des de Windows)
+## 6\. Configuració de proxy (des de Windows)
 
 Obre Propietats d’Internet (des del Panell de Control o Configuració de xarxa).
 
@@ -71,7 +71,7 @@ Configura el servidor proxy manualment si cal (exemple: 127.0.0.1:9876 per a SOC
 ![solucio](/tasca05/img/cap12.png)
 ![solucio](/tasca05/img/cap13.png)
 
-7\. Captura de trànsit SSH amb Wireshark
+## 7\. Captura de trànsit SSH amb Wireshark
 
 Client: 10.0.2.15
 
@@ -81,7 +81,7 @@ El trànsit SSH està xifrat, per tant només es veuen paquets de tipus SSH amb 
 ![solucio](/tasca05/img/cap14.png)
 ![solucio](/tasca05/img/cap15.png)
 
-8\. Configuració d'autenticació amb claus SSH (sense contrasenya)
+## 8\. Configuració d'autenticació amb claus SSH (sense contrasenya)
 
 Generar claus SSH al client (Windows)
 
