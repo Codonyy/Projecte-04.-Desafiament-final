@@ -1,172 +1,126 @@
 
-Projecte04: Servidor NFS
-DevOptimize Solutions – Proof of Concept
-🧩 Descripció del projecte
+# Projecte04: Servidor NFS  
+## DevOptimize Solutions – Proof of Concept
 
-DevOptimize Solutions és una startup de desenvolupament de programari que treballa exclusivament amb Linux. Actualment pateixen un problema greu de desorganització: cada desenvolupador té còpies locals del codi i dels recursos del projecte, provocant inconsistències, conflictes de versió i una pèrdua d’eficiència constant.
+## Descripció del projecte
+DevOptimize Solutions és una startup de desenvolupament de programari que treballa exclusivament amb Linux. Actualment tenen un problema greu d’organització: cada desenvolupador guarda còpies locals del codi i dels recursos, provocant inconsistències, conflictes de versions i pèrdues d’eficiència.
 
-La solució proposada és desplegar un servidor de fitxers centralitzat amb NFS (Network File System). El client no disposa d’un entorn d’autenticació centralitzada, així que la gestió d’usuaris i permisos es farà de manera local a cada màquina.
+La solució proposada és desplegar un servidor de fitxers centralitzat amb NFS (Network File System). Com que el client no disposa d’un sistema d'autenticació centralitzat, la gestió d’usuaris i permisos es farà localment a cada màquina.
 
-Aquest projecte mostra una demostració funcional que permet al client visualitzar tant el funcionament correcte de NFS com les seves limitacions.
+Aquest projecte és una demostració funcional per mostrar el funcionament del sistema i les seves limitacions.
 
-🚀 Objectius de la demostració
+---
 
-Configurar un servidor NFSv3 amb Ubuntu Server 24.04.
+# Objectius del projecte
+- Configurar un servidor NFSv3 amb Ubuntu Server 24.04.  
+- Configurar un client Linux amb Zorin OS 18.  
+- Crear usuaris, grups i permisos.  
+- Configurar `/etc/exports` i demostrar control d’accés.  
+- Mostrar diferències entre `root_squash` i `no_root_squash`.  
+- Configurar muntatge automàtic amb `/etc/fstab`.
 
-Configurar un client Linux amb Zorin OS 18.
+---
 
-Crear estructura d’usuaris, grups i permisos.
+# Fases del Projecte
 
-Demonstrar el control d’accés via /etc/exports i permisos del sistema.
-
-Mostrar problemes i solucions relacionats amb root_squash i no_root_squash.
-
-Configurar muntatge automàtic via /etc/fstab.
-
-🏗️ Fases del Projecte
-Fase 1: Preparació de l'entorn
-
+## Fase 1: Preparació de l'entorn
 Es creen dues màquines virtuals:
 
-🔧 Servidor
+### Servidor
+- Sistema: Ubuntu Server 24.04 LTS  
+- Idioma: Espanyol  
+- Servei SSH instal·lat  
+- Xarxes:
+  - NAT (accés a Internet)
+  - Host-only (comunicació amb el client)
 
-Sistema: Ubuntu Server 24.04 LTS
+### Client
+- Sistema: Zorin OS 18  
+- Xarxes: NAT + Host-only  
 
-Idioma: Espanyol
+Ambdues màquines s’actualitzen i es comprova la comunicació entre elles.
 
-SSH: Instal·lat durant la configuració
+---
 
-Xarxes:
+## Fase 2: Preparació del servidor
 
-NAT (accés a Internet)
+### Creació de grups
+- devs  
+- admins
 
-Host-only (comunicació amb el client)
+### Creació d’usuaris
+- dev01 (membre de devs)  
+- admin01 (membre de admins)
 
-💻 Client
+Nota: Cal replicar usuaris i grups al client o assegurar que UID i GID coincideixen.
 
-Sistema: Zorin OS 18
+### Creació de directoris
+- `/srv/nfs/dev_projects`  
+- `/srv/nfs/admin_tools`
 
-Xarxes: NAT + Host-only
+### Permisos
+- Propietari: root  
+- Grup assignat segons directori  
+- Objectius:
+  - Els desenvolupadors tenen control total sobre `dev_projects`
+  - Els administradors tenen control sobre `admin_tools`
 
-Tots dos sistemes es connecten entre ells i s’actualitzen amb les últimes versions.
+S’instal·len els paquets NFS i es prepara `/etc/exports`.
 
-Fase 2: Preparació del servidor
-👥 Creació de grups
+---
 
-devs
+## Fase 3: Exportació d'Administració – root_squash
 
-admins
+### Prova 1: Error habitual
+1. Exportar `/srv/nfs/admin_tools` amb: `rw,sync`.  
+2. Muntar al client a `/mnt/admin_tools`.  
+3. Com a root del client, crear un fitxer.  
+4. Comprovar el propietari.
 
-👤 Creació d’usuaris
+Resultat: el fitxer no pertany a root.  
+Explicació: NFS aplica `root_squash`, convertint root en `nobody`.
 
-dev01 (grup: devs)
+### Prova 2: Solució
+1. Afegir a l’exportació l’opció `no_root_squash`.  
+2. Desmuntar i remuntar.  
+3. Crear un fitxer com a root.
 
-admin01 (grup: admins)
+Resultat: root passa a ser propietari real.  
+Explicació: `no_root_squash` desactiva la conversió de UID 0.
 
-⚠️ Important: Cal replicar els mateixos usuaris i grups al client o assegurar que els UID i GID coincideixen.
+---
 
-📁 Directori de treball
+## Fase 4: Exportació de Desenvolupament – permisos rw vs ro
+Es configura `/etc/exports` perquè:
 
-/srv/nfs/dev_projects
+- La xarxa 192.168.56.0/24 tingui permisos d'escriptura (rw).  
+- La IP 192.168.56.100 tingui només lectura (ro).  
 
-/srv/nfs/admin_tools
+### Proves
+1. Com a dev01, muntar `/mnt/dev_projects` i escriure-hi: funciona.  
+2. Canviar la IP del client a 192.168.56.100: només lectura.  
+3. Canviar a admin01 i provar d'escriure: no pot, perquè no és membre del grup devs.
 
-🔐 Permisos
+---
 
-Propietari: root
-
-Grup: devs o admins segons el cas
-
-Objectiu:
-
-Els desenvolupadors tenen control total sobre dev_projects
-
-Els administradors tenen control sobre admin_tools
-
-Finalment, s’instal·len els paquets NFS i es configura /etc/exports.
-
-Fase 3: Exportació d'Administració – El dilema del root_squash
-🧪 Prova 1 – L’error habitual
-
-Exportar /srv/nfs/admin_tools amb:
-
-rw,sync
-
-
-Muntar al client: /mnt/admin_tools
-
-Com a root, crear un fitxer al recurs NFS.
-
-Verificar propietari del fitxer.
-
-📌 Resultat: El fitxer NO pertany a root.
-📘 Explicació: NFS aplica root_squash, convertint root (UID 0) en nobody.
-
-🧪 Prova 2 – La Solució
-
-Afegir a l’exportació l’opció:
-
-no_root_squash
-
-
-Desmuntar i remuntar el recurs.
-
-Com a root, crear un fitxer de nou.
-
-📌 Resultat: Ara sí, el fitxer pertany a root.
-📘 Explicació: no_root_squash desactiva la protecció i preserva UID 0.
-
-Fase 4: Exportació de Desenvolupament – Permisos rw vs ro
-
-Editar /etc/exports per permetre:
-
-A la xarxa 192.168.56.0/24 → rw
-
-A la IP 192.168.56.100 → ro
-
-Proves:
-
-Com a dev01, muntar /mnt/dev_projects i escriure → Funciona.
-
-Canviar IP del client a 192.168.56.100 → només lectura.
-
-Canviar usuari a admin01 → no pot escriure (no pertany a devs).
-
-Fase 5: Muntatge Automàtic amb /etc/fstab
-
+## Fase 5: Muntatge automàtic amb /etc/fstab
 Afegir entrades com:
 
-<server_ip>:/srv/nfs/admin_tools   /mnt/admin_tools   nfs   defaults   0  0
-<server_ip>:/srv/nfs/dev_projects   /mnt/dev_projects  nfs   defaults   0  0
+<server_ip>:/srv/nfs/admin_tools /mnt/admin_tools nfs defaults 0 0
+<server_ip>:/srv/nfs/dev_projects /mnt/dev_projects nfs defaults 0 0
 
-✔️ Proves:
 
-Executar mount -a → comprovar que no hi ha errors
+### Comprovacions
+- Executar `mount -a` per provar les entrades.  
+- Reiniciar el client i verificar que els recursos es munten automàticament.
 
-Reiniciar el client → els recursos es munten automàticament
+---
 
-🏁 Conclusió i Recomanacions
+# Conclusió
+Aquesta prova de concepte demostra el funcionament d’un servidor NFS configurat segons les necessitats del client. Tot i així, la solució presenta limitacions importants en termes de seguretat i gestió d’usuaris.
 
-Aquesta prova de concepte demostra el funcionament bàsic d’un servidor NFS sense autenticació centralitzada. Tot i així, aquest model té limitacions importants:
-
-🔒 Recomanacions de millora
-
-Implementar autenticació centralitzada:
-
-LDAP
-
-FreeIPA
-
-Active Directory (via compatibilitat Samba)
-
-Gestionar permisos de manera consistent entre equips.
-
-Utilitzar NFSv4 amb suport d’autenticació Kerberos.
-
-Considerar alternatives més segures:
-
-Samba + ACLs
-
-Git per control de versions
-
-Automatitzar provisionament d’usuaris amb Ansible, Puppet o similars.
+## Recomanacions de millora
+- Implementar un sistema d’autenticació centralitzada (LDAP, FreeIPA, AD).  
+- Migrar a NFSv4 amb suport Kerberos.  
+- Millorar la gestió d’usuaris i permisos amb eines centralitzades.  
+- Considerar solucions alternatives per al control de versions (Git).  
