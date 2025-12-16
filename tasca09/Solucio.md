@@ -26,5 +26,7 @@ El paquet nfs-kernel-server és el servei que permet exportar directoris a la xa
 Aquí definim quins directoris es comparteixen i amb quins permisos.
 
 rw: lectura i escriptura
+
 sync: sincronització immediata
+
 no_root_squash: permet que root al client mantingui privilegis
