@@ -64,25 +64,38 @@ Comprovem que els serveis NFS (portmapper, mountd, nfs) estan actius i escoltant
 
 El client necessita el paquet nfs-common per poder muntar directoris NFS. Sense aquest paquet, no pot connectar-se al servidor.
 
+![solucio](/tasca09/img/cap12.png)
+![solucio](/tasca09/img/cap13.png)
 
 ### 8. Comprovació de les exportacions
 
 Mostra els directoris que el servidor exporta. Ens assegura que el client veu correctament els recursos compartits.
 
+![solucio](/tasca09/img/cap14.png)
 
 ### 9. Muntatge manual
 
 Muntem els directoris compartits al client per accedir-hi com si fossin locals. Això permet treballar amb fitxers de manera transparent.
 
+![solucio](/tasca09/img/cap15.png)
+![solucio](/tasca09/img/cap16.png)
+![solucio](/tasca09/img/cap21.png)
+![solucio](/tasca09/img/cap22.png)
+![solucio](/tasca09/img/cap23.png)
+![solucio](/tasca09/img/cap24.png)
+![solucio](/tasca09/img/cap25.png)
 
 ### 10. Muntatge automàtic amb /etc/fstab
 
 Amb aquesta configuració, els directoris NFS es muntaran automàticament cada cop que el client reiniciï. Evita haver de muntar-los manualment.
 
+![solucio](/tasca09/img/cap27.png)
 
 ### 11. Validació final
 
 Reiniciem el client i comprovem que els directoris NFS apareixen muntats correctament. És la validació final que tot funciona.
+
+![solucio](/tasca09/img/cap28.png)
 
 ### Conclusió NFS
 
