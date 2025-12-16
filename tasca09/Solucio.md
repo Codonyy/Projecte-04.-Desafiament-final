@@ -30,3 +30,45 @@ rw: lectura i escriptura
 sync: sincronització immediata
 
 no_root_squash: permet que root al client mantingui privilegis
+
+### 5. Activació del servei
+
+Reiniciem i habilitem el servei perquè les exportacions entrin en vigor i el servidor NFS s’executi automàticament en cada arrencada.
+
+
+### 6. Verificació amb rpcinfo
+
+Comprovem que els serveis NFS (portmapper, mountd, nfs) estan actius i escoltant als ports correctes. És una validació tècnica que el servidor funciona.
+
+
+### 7. Configuració del client Linux
+
+El client necessita el paquet nfs-common per poder muntar directoris NFS. Sense aquest paquet, no pot connectar-se al servidor.
+
+
+### 8. Comprovació de les exportacions
+
+Mostra els directoris que el servidor exporta. Ens assegura que el client veu correctament els recursos compartits.
+
+
+### 9. Muntatge manual
+
+Muntem els directoris compartits al client per accedir-hi com si fossin locals. Això permet treballar amb fitxers de manera transparent.
+
+
+### 10. Muntatge automàtic amb /etc/fstab
+
+Amb aquesta configuració, els directoris NFS es muntaran automàticament cada cop que el client reiniciï. Evita haver de muntar-los manualment.
+
+
+### 11. Validació final
+
+Reiniciem el client i comprovem que els directoris NFS apareixen muntats correctament. És la validació final que tot funciona.
+
+### Conclusió NFS
+
+Hem muntat un servidor NFS perquè tots tinguin els fitxers al mateix lloc.
+Així evitem que cada persona tingui còpies diferents i es perdi temps.
+Els grups i permisos fan que només qui toca pugui escriure o llegir.
+També hem vist el tema del root_squash i com afecta al root del client.
+Funciona bé, però en el futur caldria posar més seguretat i control d’usuaris.
