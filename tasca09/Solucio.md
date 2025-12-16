@@ -7,19 +7,34 @@ Aquesta guia documenta pas a pas la configuració d’un servidor NFS a Ubuntu S
 
 ## Preparació de l'entorn
 
+![solucio](/tasca09/img/cap2.png)
+![solucio](/tasca09/img/cap3.png)
+
 ### 1. Creació de grups i usuaris
 
 Creem grups (devs, admins) per separar rols i permisos. Els usuaris dev01 i admin01 pertanyen a aquests grups, cosa que ens permet controlar qui pot accedir i modificar els recursos compartits.
 
+![solucio](/tasca09/img/cap1.png)
+![solucio](/tasca09/img/cap4.png)
+![solucio](/tasca09/img/cap5.png)
 
 ### 2. Creació de directoris compartits
 
 Definim els directoris que es compartiran via NFS. Assignem propietaris i permisos perquè només els membres dels grups corresponents puguin escriure-hi. Això garanteix seguretat i organització.
 
+![solucio](/tasca09/img/cap6.png)
+![solucio](/tasca09/img/cap7.png)
+![solucio](/tasca09/img/cap8.png)
+![solucio](/tasca09/img/cap8.1.png)
+![solucio](/tasca09/img/cap8.2.png)
+![solucio](/tasca09/img/cap8.3.png)
+
 
 ### 3. Instal·lació del servidor NFS
 
 El paquet nfs-kernel-server és el servei que permet exportar directoris a la xarxa. Sense ell, el servidor no pot compartir carpetes amb els clients.
+
+![solucio](/tasca09/img/cap9.png)
 
 ### 4. Configuració de les exportacions
 
@@ -31,15 +46,19 @@ sync: sincronització immediata
 
 no_root_squash: permet que root al client mantingui privilegis
 
+![solucio](/tasca09/img/cap11.png)
+
 ### 5. Activació del servei
 
 Reiniciem i habilitem el servei perquè les exportacions entrin en vigor i el servidor NFS s’executi automàticament en cada arrencada.
 
+![solucio](/tasca09/img/cap10.png)
 
 ### 6. Verificació amb rpcinfo
 
 Comprovem que els serveis NFS (portmapper, mountd, nfs) estan actius i escoltant als ports correctes. És una validació tècnica que el servidor funciona.
 
+![solucio](/tasca09/img/cap11.1.png)
 
 ### 7. Configuració del client Linux
 
