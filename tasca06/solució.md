@@ -20,6 +20,17 @@ Permetre la connexió remota entre un equip client i un equip de suport, per tal
 
 **Nota:** Cal assegurar-se que l'equip client té un nom identificable a la xarxa (ex: `DESKTOP-BROTAV4`).
 
+![solucio](/tasca06/img/cap1.png)
+![solucio](/tasca06/img/cap2.png)
+![solucio](/tasca06/img/cap3.png)
+![solucio](/tasca06/img/cap4.png)
+![solucio](/tasca06/img/cap5.png)
+![solucio](/tasca06/img/cap6.png)
+![solucio](/tasca06/img/cap7.png)
+![solucio](/tasca06/img/cap8.png)
+![solucio](/tasca06/img/cap9.png)
+![solucio](/tasca06/img/cap10.png)
+
 ---
 
 ## Pas 2: Configurar l'Escriptori Remot a l'Equip de Suport (GNU/Linux amb Zorin/GNOME)
@@ -31,22 +42,15 @@ Permetre la connexió remota entre un equip client i un equip de suport, per tal
   - **Port RDP:** `3389` (per defecte) o `3390` (segons configuració)
   - **Usuari i contrasenya locals**
 
----
-
-## Pas 3: Connexió des del Client de Suport (Remmina o Client RDP)
-
-- Obrir **Remmina** (client d’escriptori remot per a Linux).
-- Crear una nova connexió **RDP** amb els següents paràmetres:
-  - **Equip:** `DESKTOP-BROTAV4.local`
-  - **Usuari:** `Marti`
-  - **Contrasenya:** la del compte remot
-- Acceptar el certificat de seguretat si es demana (encara que no estigui signat per una entitat de confiança).
-- Iniciar la connexió.
+![solucio](/tasca06/img/cap11.png)
+![solucio](/tasca06/img/cap12.png)
+![solucio](/tasca06/img/cap13.png)
+![solucio](/tasca06/img/cap14.png)
+![solucio](/tasca06/img/cap15.png)
+![solucio](/tasca06/img/cap16.png)
+![solucio](/tasca06/img/cap17.png)
+![solucio](/tasca06/img/cap18.png)
+![solucio](/tasca06/img/cap19.png)
 
 ---
 
-## Pas 4: Validació i Resolució d'Incidències
-
-- Un cop connectat, es pot visualitzar i controlar l'escriptori remot.
-- Es pot comprovar la connectivitat amb `ping` i `ip a` des del terminal.
-- En cas d'errors de certificat, es pot continuar igualment en entorns de prova (PoC).
