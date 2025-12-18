@@ -34,25 +34,25 @@ Ha d'explicar el flux de treball des del punt de vista del consultor. Ha d'inclo
 
 Com instal·lar la versió completa/tècnica de l'eina.
 
-![][image1]
+![solucio](/tasca07/img/cap1.png)
 
  Com iniciar una sessió de suport.
 
-![][image2]
+![solucio](/tasca06/img/cap2.png)
 
-![][image3]
+![solucio](/tasca06/img/cap3.png)
 
  Com gestionar funcions clau (transferència d'arxius, canvi de pantalla, reinici remot).
 
-![][image4]
+![solucio](/tasca06/img/cap4.png)
 
-![][image5]
+![solucio](/tasca06/img/cap5.png)
 
-![][image6]
+![solucio](/tasca06/img/cap6.png)
 
-![][image7]
+![solucio](/tasca06/img/cap7.png)
 
-![][image8]
+![solucio](/tasca06/img/cap8.png)
 
  Bones pràctiques de seguretat (p. ex., tancar sempre la sessió, no desar contrasenyes de clients)
 
@@ -66,16 +66,18 @@ Ha d'incloure (amb captures de pantalla molt clares):
 
 ·         L'enllaç o la manera de descarregar el mòdul "Quick Support" (o equivalent) que no requereixi instal·lació.
 
-![][image9]
+![solucio](/tasca06/img/cap9.png)
 
 ·         On han de fer clic exactament.
 
 ·         Com identificar i comunicar al tècnic l'ID de sessió i la contrasenya (si n'hi ha).
 
-![][image10]
-
-![][image11]
+![solucio](/tasca06/img/cap10.png)
+![solucio](/tasca06/img/cap11.png)
 
 ·         Com acceptar la petició de connexió.
 
-![][image12]![][image13]![][image14]
+![solucio](/tasca06/img/cap12.png)
+![solucio](/tasca06/img/cap13.png)
+![solucio](/tasca06/img/cap14.png)
+
